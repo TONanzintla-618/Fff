@@ -1,82 +1,69 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Сайт з зображенням та кнопками</title>
+    <title>Call Simulation</title>
     <style>
         body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
+            background-color: black;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
             margin: 0;
-            background-color: #f0f0f0;
+            padding: 0;
         }
         .container {
-            text-align: center;
+            margin-top: 50px;
         }
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-        .buttons {
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-        .buttons button {
-            width: 60px;
-            height: 60px;
+        .button {
+            padding: 15px 30px;
+            font-size: 18px;
             border: none;
-            border-radius: 50%;
-            font-size: 24px;
+            border-radius: 5px;
             color: white;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            margin: 10px;
         }
         .accept {
-            background-color: #28a745; /* зелений */
+            background-color: green;
         }
         .reject {
-            background-color: #dc3545; /* червоний */
+            background-color: red;
         }
-        audio {
-            display: none; /* Приховуємо елемент аудіо */
+        img {
+            width: 200px;
+            height: auto;
+            display: block;
+            margin: 20px auto;
         }
     </style>
 </head>
 <body>
-    <audio id="background-music" src="iphone-11-pro.mp3" autoplay loop></audio>
     <div class="container">
-        <img src="https://zvukogram.com/index.php?r=site/download&id=43570" alt="Зображення">
-        <div class="buttons">
-            <button class="accept" onclick="acceptCall()">📞</button>
-            <button class="reject" onclick="rejectCall()">❌</button>
-        </div>
-    </div>
-    <script>
-        const backgroundMusic = document.getElementById('background-music');
+        <!-- Зображення -->
+        <img src="https://i.postimg.cc/Y9VwHYdV/2748b2b2-703b-4eee-ab34-c167c40258d6-1723752129929.jpg" alt="Call Icon">
 
-        function acceptCall() {
-            // Зупинити фонова музика
-            backgroundMusic.pause();
-            
-            // Відтворити нову музику
-            const newMusic = new Audio('1488-OMG-joker_2.mp3');
-            newMusic.play();
+        <!-- Музика -->
+        <audio id="background-music" src="music/iphone-11-pro.mp3" autoplay loop></audio>
+
+        <!-- Кнопки -->
+        <button class="button reject" onclick="endCall()">Reject Call</button>
+        <button class="button accept" onclick="acceptCall()">Accept Call</button>
+    </div>
+
+    <script>
+        function endCall() {
+            var music = document.getElementById('background-music');
+            music.pause();
+            window.location.href = 'https://example.com'; // Заміни на URL для виходу
         }
 
-        function rejectCall() {
-            // Зупинити фонова музика
-            backgroundMusic.pause();
-            
-            // Вихід з сайту
-            window.location.href = 'about:blank'; // Або будь-яка інша URL, якщо потрібно
+        function acceptCall() {
+            var music = document.getElementById('background-music');
+            music.pause();
+            var newMusic = new Audio('music/1488-OMG-joker_2.mp3');
+            newMusic.play();
         }
     </script>
 </body>
