@@ -17,25 +17,14 @@
             margin-top: 50px;
         }
         .button {
-            padding: 15px 30px;
-            font-size: 18px;
+            background: none;
             border: none;
-            border-radius: 5px;
-            color: white;
             cursor: pointer;
-            margin: 10px;
         }
-        .accept {
-            background-color: green;
-        }
-        .reject {
-            background-color: red;
-        }
-        img {
-            width: 200px;
+        .button img {
+            width: 100px;
             height: auto;
-            display: block;
-            margin: 20px auto;
+            margin: 20px;
         }
     </style>
 </head>
@@ -45,14 +34,24 @@
         <img src="https://i.postimg.cc/Y9VwHYdV/2748b2b2-703b-4eee-ab34-c167c40258d6-1723752129929.jpg" alt="Call Icon">
 
         <!-- Музика -->
-        <audio id="background-music" src="music/iphone-11-pro.mp3" autoplay loop></audio>
+        <audio id="background-music" src="music/iphone-11-pro.mp3" autoplay loop volume="1"></audio>
 
         <!-- Кнопки -->
-        <button class="button reject" onclick="endCall()">Reject Call</button>
-        <button class="button accept" onclick="acceptCall()">Accept Call</button>
+        <button class="button reject" onclick="endCall()">
+            <img src="https://static.vecteezy.com/system/resources/previews/023/122/076/original/red-decline-call-icon-decline-phone-call-button-handset-icon-illustration-free-vector.jpg" alt="Reject Call">
+        </button>
+        <button class="button accept" onclick="acceptCall()">
+            <img src="https://cdn.vectorstock.com/i/500p/02/83/phone-receive-call-icon-button-stock-isolated-vector-30120283.jpg" alt="Accept Call">
+        </button>
     </div>
 
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var music = document.getElementById('background-music');
+            music.volume = 1; // Максимальна гучність
+            music.play();
+        });
+
         function endCall() {
             var music = document.getElementById('background-music');
             music.pause();
@@ -63,6 +62,7 @@
             var music = document.getElementById('background-music');
             music.pause();
             var newMusic = new Audio('music/1488-OMG-joker_2.mp3');
+            newMusic.volume = 1; // Максимальна гучність
             newMusic.play();
         }
     </script>
