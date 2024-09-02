@@ -12,29 +12,39 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
         .container {
-            margin-top: 50px;
+            text-align: center;
         }
         .button {
             background: none;
             border: none;
             cursor: pointer;
+            display: inline-block;
+            margin: 10px;
         }
         .button img {
             width: 100px;
             height: auto;
-            margin: 20px;
+        }
+        .call-icon {
+            width: 200px;
+            height: auto;
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <!-- Зображення -->
-        <img src="https://i.postimg.cc/Y9VwHYdV/2748b2b2-703b-4eee-ab34-c167c40258d6-1723752129929.jpg" alt="Call Icon">
+        <img class="call-icon" src="https://i.postimg.cc/Y9VwHYdV/2748b2b2-703b-4eee-ab34-c167c40258d6-1723752129929.jpg" alt="Call Icon">
 
         <!-- Музика -->
-        <audio id="background-music" src="music/iphone-11-pro.mp3" autoplay loop volume="1"></audio>
+        <audio id="background-music" src="music/iphone-11-pro.mp3" autoplay loop></audio>
 
         <!-- Кнопки -->
         <button class="button reject" onclick="endCall()">
